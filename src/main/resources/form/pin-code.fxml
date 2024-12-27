@@ -45,52 +45,57 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="numOne" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="1" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="2" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1">
+                  <Button fx:id="numTwo" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="2" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="3" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2">
+                  <Button fx:id="numThree" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="3" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="4" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
+                  <Button fx:id="numFour" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="4" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="5" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="numFive" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="5" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="6" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="numSix" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="6" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="7" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="2">
+                  <Button fx:id="numSeven" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="7" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="2">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="8" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button fx:id="numEight" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="8" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="9" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button fx:id="numNine" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="9" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="0" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button fx:id="numZero" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="0" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Lucida Grande" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="numZero" blendMode="OVERLAY" layoutX="160.0" layoutY="233.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" text="0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
