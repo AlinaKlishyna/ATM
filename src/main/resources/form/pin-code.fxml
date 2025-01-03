@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -18,11 +18,11 @@
          <top>
             <Pane prefHeight="274.0" prefWidth="819.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="authSingField" alignment="CENTER" layoutX="210.0" layoutY="182.0" onAction="#submit" prefHeight="70.0" prefWidth="400.0">
+                  <PasswordField fx:id="authSingField" alignment="CENTER" layoutX="209.0" layoutY="182.0" prefHeight="71.0" prefWidth="402.0" styleClass="textfield" stylesheets="@../style/field.css">
                      <font>
-                        <Font size="41.0" />
+                        <Font size="31.0" />
                      </font>
-                  </TextField>
+                  </PasswordField>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="98.0" prefHeight="78.0" prefWidth="401.0" text="Pin Code" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                      <font>
                         <Font name="Bai Jamjuree Medium" size="59.0" />
