@@ -23,7 +23,7 @@
                         <Font size="31.0" />
                      </font>
                   </PasswordField>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="98.0" prefHeight="78.0" prefWidth="401.0" text="Pin Code" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+                  <Label fx:id="startLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="98.0" prefHeight="78.0" prefWidth="401.0" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                      <font>
                         <Font name="Bai Jamjuree Medium" size="59.0" />
                      </font>
