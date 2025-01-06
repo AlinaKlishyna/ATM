@@ -2,16 +2,10 @@ package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
 
 public class EntryController {
 
@@ -52,12 +46,12 @@ public class EntryController {
     private Label startLabel;
 
     private final byte maxLength = 4;
-    private Sound keyboardSound = new Sound(Sound.KEYBOARD);
+
     private Sound buttonSound = new Sound(Sound.BUTTON);
 
     @FXML
     void initialize() {
-        printLineByLine("Pin Code", startLabel);
+        Movement.printLineByLine("Pin Code", startLabel);
 
         Button[] numbers = {
                 numZero, numOne, numTwo, numThree, numFour, numFive, numSix, numSeven, numEight, numNine};
@@ -76,28 +70,6 @@ public class EntryController {
                 }
             });
         }
-    }
-
-    public void printLineByLine(String text, Label output) {
-        Timeline timeline = new Timeline();
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(300), new EventHandler<ActionEvent>() {
-            int i = 0;
-
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if (i < text.length()) {
-                    keyboardSound.play();
-                    output.setText(output.getText() + text.charAt(i));
-                    keyboardSound.stop();
-                    i++;
-                } else {
-                    timeline.stop();
-                }
-            }
-        });
-        timeline.getKeyFrames().add(keyFrame);
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
     }
 
     boolean checkSizeLimit(int size) {
