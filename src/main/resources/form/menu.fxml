@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="820.0" styleClass="backgroundColor" stylesheets="@../style/background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gmail.alinakotova102.controllers.EntryController">
+   <children>
+      <Label fx:id="userLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="405.0" layoutY="19.0" prefHeight="78.0" prefWidth="401.0" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Bai Jamjuree Medium" size="59.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

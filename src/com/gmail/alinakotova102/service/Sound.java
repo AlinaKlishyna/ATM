@@ -1,4 +1,4 @@
-package com.gmail.alinakotova102;
+package com.gmail.alinakotova102.service;
 
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
