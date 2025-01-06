@@ -1,5 +1,6 @@
 package com.gmail.alinakotova102.controllers;
 
+import com.gmail.alinakotova102.Sound;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -50,6 +51,8 @@ public class EntryController {
     private Label startLabel;
 
     private final byte maxLength = 4;
+    private Sound keyboardSound = new Sound("src/main/resources/sound/keyboard_sound.mp3");
+    private Sound buttonSound = new Sound("src/main/resources/sound/button_sound.mp3");
 
     @FXML
     void initialize() {
@@ -63,19 +66,22 @@ public class EntryController {
             numbers[i].setOnAction(event -> {
                 if (checkSizeLimit(maxLength))
                     authSingField.appendText(String.valueOf(num));
+                buttonSound.play();
             });
         }
     }
 
     public void printLineByLine(String text, Label output) {
         Timeline timeline = new Timeline();
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(300), new EventHandler<ActionEvent>() {
             int i = 0;
 
             @Override
             public void handle(ActionEvent actionEvent) {
-                if (i <= text.length()) {
-                    output.setText(text.substring(0, i));
+                if (i < text.length()) {
+                    keyboardSound.play();
+                    output.setText(output.getText() + text.charAt(i));
+                    keyboardSound.stop();
                     i++;
                 } else {
                     timeline.stop();
