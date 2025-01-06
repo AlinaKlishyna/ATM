@@ -1,6 +1,6 @@
 package com.gmail.alinakotova102.controllers;
 
-import com.gmail.alinakotova102.Sound;
+import com.gmail.alinakotova102.service.Sound;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
