@@ -1,6 +1,7 @@
 package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.service.Sound;
+import com.gmail.alinakotova102.service.Movement;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -70,6 +71,7 @@ public class EntryController {
             numbers[i].setOnAction(event -> {
                 if (checkSizeLimit(maxLength)) {
                     authSingField.appendText(String.valueOf(num));
+                    Movement.shake(authSingField);
                     buttonSound.play();
                 }
             });
