@@ -61,12 +61,17 @@ public class EntryController {
         Button[] numbers = {
                 numZero, numOne, numTwo, numThree, numFour, numFive, numSix, numSeven, numEight, numNine};
 
+        buttonAction(numbers);
+    }
+
+    public void buttonAction(Button[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int num = i;
             numbers[i].setOnAction(event -> {
-                if (checkSizeLimit(maxLength))
+                if (checkSizeLimit(maxLength)) {
                     authSingField.appendText(String.valueOf(num));
-                buttonSound.play();
+                    buttonSound.play();
+                }
             });
         }
     }
