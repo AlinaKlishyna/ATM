@@ -9,6 +9,8 @@ public class Sound {
 
     private String nameFile;
     private MediaPlayer mediaPlayer;
+    public static final String KEYBOARD = "src/main/resources/sound/keyboard_sound.mp3";
+    public static final String BUTTON = "src/main/resources/sound/button_sound.mp3";
 
     public Sound(String nameFile) {
         this.nameFile = nameFile;

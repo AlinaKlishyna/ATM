@@ -51,8 +51,8 @@ public class EntryController {
     private Label startLabel;
 
     private final byte maxLength = 4;
-    private Sound keyboardSound = new Sound("src/main/resources/sound/keyboard_sound.mp3");
-    private Sound buttonSound = new Sound("src/main/resources/sound/button_sound.mp3");
+    private Sound keyboardSound = new Sound(Sound.KEYBOARD);
+    private Sound buttonSound = new Sound(Sound.BUTTON);
 
     @FXML
     void initialize() {
