@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 public class MenuController {
 
     @FXML
-    private Label balance;
+    private Label balanceLabel;
 
     @FXML
     private Button closeApp;
@@ -32,19 +32,38 @@ public class MenuController {
     @FXML
     private Button withdrawAmount;
 
+    Integer balance = 28;
+
     @FXML
     void initialize() {
         Image iconEyeClose = new Image(getClass().getResourceAsStream("/image/eye_close.png"));
         Image iconEyeOpen = new Image(getClass().getResourceAsStream("/image/eye_open.png"));
+
+        balanceLabel.setText(String.valueOf(balance));
 
         viewEye.setImage(iconEyeClose);
 
         displayPassword.setOnAction(actionEvent -> {
             if (viewEye.getImage() == iconEyeClose) {
                 viewEye.setImage(iconEyeOpen);
+                hideBalance(balanceLabel);
             } else {
                 viewEye.setImage(iconEyeClose);
+                viewBalance(balanceLabel);
             }
         });
+    }
+
+    void hideBalance(Label label) {
+        String textHide = "";
+        Byte countNumbersBalance = (byte) String.valueOf(balance).length();
+        for (int i = 0; i < countNumbersBalance; i++) {
+            textHide += "*";
+        }
+        label.setText(textHide);
+    }
+
+    void viewBalance(Label label) {
+        label.setText(String.valueOf(balance));
     }
 }

@@ -35,7 +35,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Label fx:id="balance" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="148.0" prefHeight="147.0" prefWidth="417.0" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+                  <Label fx:id="balanceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="148.0" prefHeight="147.0" prefWidth="417.0" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                      <font>
                         <Font name="Bai Jamjuree Medium" size="59.0" />
                      </font>
