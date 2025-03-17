@@ -85,19 +85,17 @@ public class EntryController {
 
     public void entrySystem() {
         if (!authSingField.getText().isEmpty()) {
-            int id_clients = 1;
             short pincode = Short.parseShort(authSingField.getText().trim());
             System.out.println(pincode);
-            loginUser(id_clients, pincode);
+            loginUser(pincode);
         } else {
             System.out.println("Error! Password is empty!");
         }
     }
 
-    private void loginUser(int idClients, short pincode) {
+    private void loginUser(short pincode) {
         DatabaseHandler dbHandler = new DatabaseHandler();
         Client client = new Client();
-        client.setIdClient(idClients);
         client.setPincode(pincode);
         ResultSet resultSet = dbHandler.getClient(client);
 

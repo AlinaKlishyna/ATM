@@ -1,7 +1,7 @@
 package com.gmail.alinakotova102;
 
 public class Client {
-    private int idClient;
+    public static final int idClient = 1;
     private String firstname;
     private String lastname;
     private String address;
@@ -11,8 +11,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(int idClient, String firstname, String lastname, String address, int contact, short pincode) {
-        this.idClient = idClient;
+    public Client(String firstname, String lastname, String address, int contact, short pincode) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
@@ -22,10 +21,6 @@ public class Client {
 
     public int getIdClient() {
         return idClient;
-    }
-
-    public void setIdClient(int idClient) {
-        this.idClient = idClient;
     }
 
     public String getFirstname() {

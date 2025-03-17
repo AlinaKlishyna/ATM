@@ -29,14 +29,13 @@ public class DatabaseHandler extends Configs {
             PreparedStatement statement = getDbConnection().prepareStatement(select);
             statement.setString(1, String.valueOf(client.getIdClient()));
             statement.setString(2, String.valueOf(client.getPincode()));
-
             resultSet = statement.executeQuery(); // позволяет получить данные из БД
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        this.client = addDataClient();
+       this.client = addDataClient();
         return resultSet;
     }
 
@@ -44,18 +43,19 @@ public class DatabaseHandler extends Configs {
         String firstLastName = "";
         ResultSet resultSet = null;
         Client client = new Client();
-        String select = "SELECT * FROM " + ConstClientsDB.CLIENT_TABLE;
+        String select = "SELECT * FROM " + ConstClientsDB.CLIENT_TABLE + " WHERE " +
+                ConstClientsDB.CLIENTS_ID + "=?";
 
         try {
             PreparedStatement statement = getDbConnection().prepareStatement(select);
+            statement.setString(1, String.valueOf(Client.idClient));
+
             resultSet = statement.executeQuery();
         while(resultSet.next()){
-            client.setIdClient(resultSet.getInt(1));
             client.setFirstname(resultSet.getString(2));
             client.setLastname(resultSet.getString(3));
             client.setAddress(resultSet.getString(4));
             client.setContact(resultSet.getInt(5));
-            client.setPincode(resultSet.getShort(6));
         }
         } catch (SQLException e) {
             throw new RuntimeException(e);
