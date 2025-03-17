@@ -1,5 +1,6 @@
 package com.gmail.alinakotova102.controllers;
 
+import com.gmail.alinakotova102.database.DatabaseHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,6 +25,9 @@ public class MenuController {
     private ImageView viewEye;
 
     @FXML
+    private ImageView view_exit;
+
+    @FXML
     private Label userLabel;
 
     @FXML
@@ -32,16 +36,20 @@ public class MenuController {
     @FXML
     private Button withdrawAmount;
 
-    Integer balance = 28;
+    Double balance = 3577777.4;
 
     @FXML
     void initialize() {
         Image iconEyeClose = new Image(getClass().getResourceAsStream("/image/eye_close.png"));
         Image iconEyeOpen = new Image(getClass().getResourceAsStream("/image/eye_open.png"));
+        Image iconExit = new Image(getClass().getResourceAsStream("/image/icon_exit.png"));
 
         balanceLabel.setText(String.valueOf(balance));
 
-        viewEye.setImage(iconEyeClose);
+        view_exit.setImage(iconExit);
+
+        viewEye.setImage(iconEyeOpen);
+        hideBalance(balanceLabel);
 
         displayPassword.setOnAction(actionEvent -> {
             if (viewEye.getImage() == iconEyeClose) {
@@ -52,6 +60,11 @@ public class MenuController {
                 viewBalance(balanceLabel);
             }
         });
+        userLabel.setText("Welcome, " + viewFirstLastName() + "!");
+    }
+
+    private String viewFirstLastName() {
+        return DatabaseHandler.client.toString();
     }
 
     void hideBalance(Label label) {
