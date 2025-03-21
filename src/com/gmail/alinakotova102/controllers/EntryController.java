@@ -1,16 +1,21 @@
 package com.gmail.alinakotova102.controllers;
 
-import com.gmail.alinakotova102.Sound;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import com.gmail.alinakotova102.Client;
+import com.gmail.alinakotova102.database.DatabaseHandler;
+import com.gmail.alinakotova102.service.Sound;
+import com.gmail.alinakotova102.service.Movement;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class EntryController {
 
@@ -50,50 +55,93 @@ public class EntryController {
     @FXML
     private Label startLabel;
 
-    private final byte maxLength = 4;
-    private Sound keyboardSound = new Sound("src/main/resources/sound/keyboard_sound.mp3");
-    private Sound buttonSound = new Sound("src/main/resources/sound/button_sound.mp3");
+    private final byte maxLength = 3;
+
+    private Sound buttonSound = new Sound(Sound.BUTTON);
 
     @FXML
     void initialize() {
-        printLineByLine("Pin Code", startLabel);
+        Movement.printLineByLine("Pin Code", startLabel);
 
         Button[] numbers = {
                 numZero, numOne, numTwo, numThree, numFour, numFive, numSix, numSeven, numEight, numNine};
 
+        buttonAction(numbers);
+    }
+
+    public void buttonAction(Button[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int num = i;
             numbers[i].setOnAction(event -> {
-                if (checkSizeLimit(maxLength))
                     authSingField.appendText(String.valueOf(num));
-                buttonSound.play();
+                    buttonSound.play();
+                if (!checkSizeLimit(maxLength, authSingField)) {
+                    //метод на проверку пароля и потом только открытие меню
+                    entrySystem();
+                }
             });
         }
     }
 
-    public void printLineByLine(String text, Label output) {
-        Timeline timeline = new Timeline();
-        KeyFrame keyFrame = new KeyFrame(Duration.millis(300), new EventHandler<ActionEvent>() {
-            int i = 0;
-
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if (i < text.length()) {
-                    keyboardSound.play();
-                    output.setText(output.getText() + text.charAt(i));
-                    keyboardSound.stop();
-                    i++;
-                } else {
-                    timeline.stop();
-                }
-            }
-        });
-        timeline.getKeyFrames().add(keyFrame);
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+    public void entrySystem() {
+        if (!authSingField.getText().isEmpty()) {
+            short pincode = Short.parseShort(authSingField.getText().trim());
+            System.out.println(pincode);
+            loginUser(pincode);
+        } else {
+            System.out.println("Error! Password is empty!");
+        }
     }
 
-    boolean checkSizeLimit(int size) {
-        return authSingField.getCharacters().length() < size;
+    private void loginUser(short pincode) {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        Client client = new Client();
+        client.setPincode(pincode);
+        ResultSet resultSet = dbHandler.getClient(client);
+
+        int count = 0;
+
+            try {
+                while (resultSet.next()) {
+                    count++;
+                    System.out.println(count);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        System.out.println(count);
+        if (count >= 1) {
+            System.out.println("Success! Entered to system");
+            hideWindow(authSingField);
+            openWindow("/form/menu.fxml");
+        } else {
+            System.out.println("ERROR NON CORRECT PASSWORD!");
+            authSingField.setText("");
+            entrySystem();
+        }
+    }
+
+    boolean checkSizeLimit(int size, TextField textField) {
+        System.out.println(textField.getCharacters().length());
+        return textField.getCharacters().length() <= size;
+    }
+
+    public void openWindow(String path) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(path));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void hideWindow(TextField textField) {
+        textField.getScene().getWindow().hide();
     }
 }

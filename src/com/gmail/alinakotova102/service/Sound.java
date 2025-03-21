@@ -1,4 +1,4 @@
-package com.gmail.alinakotova102;
+package com.gmail.alinakotova102.service;
 
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
@@ -9,6 +9,8 @@ public class Sound {
 
     private String nameFile;
     private MediaPlayer mediaPlayer;
+    public static final String KEYBOARD = "src/main/resources/sound/keyboard_sound.mp3";
+    public static final String BUTTON = "src/main/resources/sound/button_sound.mp3";
 
     public Sound(String nameFile) {
         this.nameFile = nameFile;

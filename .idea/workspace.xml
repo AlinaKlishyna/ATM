@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="517a0b18-7774-4291-be6a-70f996d5b66e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/EntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/EntryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/DatabaseHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +19,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="module-info" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,32 +41,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Admin",
-    "jdk.selected.JAVA_MODULE": "corretto-11",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Admin&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Debugger_Data_Views_Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/image" />
       <recent name="$PROJECT_DIR$/src/main/resources/sound" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/com/gmail/alinakotova102" />
-      <recent name="$PROJECT_DIR$/src/main/resources/image" />
       <recent name="$PROJECT_DIR$/src/main/resources/form" />
     </key>
   </component>
@@ -77,7 +77,7 @@
       <option name="VM_PARAMETERS" value="--module-path &quot;$USER_HOME$/IdeaLibrary/javafx-sdk-23.0.1/lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.gmail.alinakotova102.*" />
+          <option name="PATTERN" value="com.gmail.alinakotova102.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,12 +100,42 @@
       <option name="presentableId" value="Default" />
       <updated>1734960070721</updated>
       <workItem from="1734960071721" duration="16418000" />
-      <workItem from="1736101204775" duration="12035000" />
+      <workItem from="1736101204775" duration="18868000" />
+      <workItem from="1737298629590" duration="16098000" />
+      <workItem from="1739897746431" duration="5241000" />
+      <workItem from="1740412913014" duration="2480000" />
+      <workItem from="1741897541506" duration="18588000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/MenuController.java</url>
+          <line>65</line>
+          <properties class="com.gmail.alinakotova102.controllers.MenuController" method="viewFirstLastName">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
