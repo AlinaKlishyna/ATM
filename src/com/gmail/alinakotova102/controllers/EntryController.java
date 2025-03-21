@@ -1,9 +1,21 @@
 package com.gmail.alinakotova102.controllers;
 
-import javafx.event.ActionEvent;
+import com.gmail.alinakotova102.Client;
+import com.gmail.alinakotova102.database.DatabaseHandler;
+import com.gmail.alinakotova102.service.Sound;
+import com.gmail.alinakotova102.service.Movement;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class EntryController {
 
@@ -40,69 +52,96 @@ public class EntryController {
     @FXML
     private Button numZero;
 
-    private Integer pinCode;
+    @FXML
+    private Label startLabel;
 
-    private final byte maxLength = 4;
+    private final byte maxLength = 3;
 
-    public Integer getPinCode() {
-        return pinCode;
-    }
+    private Sound buttonSound = new Sound(Sound.BUTTON);
 
     @FXML
     void initialize() {
-        numOne.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("1");
-            }
-        });
-        numTwo.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("2");
-            }
-        });
-        numThree.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("3");
-            }
-        });
-        numFour.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("4");
-            }
-        });
-        numFive.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("5");
-            }
-        });
-        numSix.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("6");
-            }
-        });
-        numSeven.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("7");
-            }
-        });
-        numEight.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("8");
-            }
-        });
-        numNine.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("9");
-            }
-        });
-        numZero.setOnAction(event -> {
-            if (checkTextLimiter()) {
-                authSingField.appendText("0");
-            }
-        });
+        Movement.printLineByLine("Pin Code", startLabel);
+
+        Button[] numbers = {
+                numZero, numOne, numTwo, numThree, numFour, numFive, numSix, numSeven, numEight, numNine};
+
+        buttonAction(numbers);
     }
 
-    boolean checkTextLimiter() {
-        return authSingField.getCharacters().length() < maxLength;
+    public void buttonAction(Button[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            int num = i;
+            numbers[i].setOnAction(event -> {
+                    authSingField.appendText(String.valueOf(num));
+                    buttonSound.play();
+                if (!checkSizeLimit(maxLength, authSingField)) {
+                    //метод на проверку пароля и потом только открытие меню
+                    entrySystem();
+                }
+            });
+        }
+    }
+
+    public void entrySystem() {
+        if (!authSingField.getText().isEmpty()) {
+            short pincode = Short.parseShort(authSingField.getText().trim());
+            System.out.println(pincode);
+            loginUser(pincode);
+        } else {
+            System.out.println("Error! Password is empty!");
+        }
+    }
+
+    private void loginUser(short pincode) {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        Client client = new Client();
+        client.setPincode(pincode);
+        ResultSet resultSet = dbHandler.getClient(client);
+
+        int count = 0;
+
+            try {
+                while (resultSet.next()) {
+                    count++;
+                    System.out.println(count);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        System.out.println(count);
+        if (count >= 1) {
+            System.out.println("Success! Entered to system");
+            hideWindow(authSingField);
+            openWindow("/form/menu.fxml");
+        } else {
+            System.out.println("ERROR NON CORRECT PASSWORD!");
+            authSingField.setText("");
+            entrySystem();
+        }
+    }
+
+    boolean checkSizeLimit(int size, TextField textField) {
+        System.out.println(textField.getCharacters().length());
+        return textField.getCharacters().length() <= size;
+    }
+
+    public void openWindow(String path) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(path));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void hideWindow(TextField textField) {
+        textField.getScene().getWindow().hide();
     }
 }

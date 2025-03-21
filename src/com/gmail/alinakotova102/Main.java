@@ -14,7 +14,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/form/pin-code.fxml"));
-
         stage.setTitle("ATM --> Start");
         stage.setScene(new Scene(root));
         stage.show();
