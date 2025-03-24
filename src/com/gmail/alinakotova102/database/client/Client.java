@@ -1,4 +1,4 @@
-package com.gmail.alinakotova102;
+package com.gmail.alinakotova102.database.client;
 
 public class Client {
     public static final int idClient = 1;
@@ -6,17 +6,15 @@ public class Client {
     private String lastname;
     private String address;
     private int contact;
-    private short pincode;
 
     public Client() {
     }
 
-    public Client(String firstname, String lastname, String address, int contact, short pincode) {
+    public Client(String firstname, String lastname, String address, int contact) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
         this.contact = contact;
-        this.pincode = pincode;
     }
 
     public int getIdClient() {
@@ -55,16 +53,14 @@ public class Client {
         this.contact = contact;
     }
 
-    public short getPincode() {
-        return pincode;
-    }
-
-    public void setPincode(short pincode) {
-        this.pincode = pincode;
-    }
-
     @Override
     public String toString() {
+        System.out.println("Login completed: " + "Client{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", contact=" + contact +
+                '}');
         return getFirstname() + " " + getLastname();
     }
 }

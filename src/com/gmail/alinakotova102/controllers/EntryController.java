@@ -1,6 +1,6 @@
 package com.gmail.alinakotova102.controllers;
 
-import com.gmail.alinakotova102.Client;
+import com.gmail.alinakotova102.database.client.Client;
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
@@ -86,7 +86,6 @@ public class EntryController {
     public void entrySystem() {
         if (!authSingField.getText().isEmpty()) {
             short pincode = Short.parseShort(authSingField.getText().trim());
-            System.out.println(pincode);
             loginUser(pincode);
         } else {
             System.out.println("Error! Password is empty!");
@@ -96,21 +95,16 @@ public class EntryController {
     private void loginUser(short pincode) {
         DatabaseHandler dbHandler = new DatabaseHandler();
         Client client = new Client();
-        client.setPincode(pincode);
-        ResultSet resultSet = dbHandler.getClient(client);
+        ResultSet resultSet = dbHandler.getClient(client, pincode);
 
         int count = 0;
-
             try {
                 while (resultSet.next()) {
                     count++;
-                    System.out.println(count);
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
-        System.out.println(count);
         if (count >= 1) {
             System.out.println("Success! Entered to system");
             hideWindow(authSingField);
@@ -123,7 +117,6 @@ public class EntryController {
     }
 
     boolean checkSizeLimit(int size, TextField textField) {
-        System.out.println(textField.getCharacters().length());
         return textField.getCharacters().length() <= size;
     }
 

@@ -1,11 +1,14 @@
 package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.database.DatabaseHandler;
+import com.gmail.alinakotova102.database.account.Account;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.math.BigDecimal;
 
 public class MenuController {
 
@@ -36,7 +39,7 @@ public class MenuController {
     @FXML
     private Button withdrawAmount;
 
-    Double balance = 3577777.4;
+    BigDecimal balance = Account.getBalance();
 
     @FXML
     void initialize() {
