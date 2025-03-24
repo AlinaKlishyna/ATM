@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="517a0b18-7774-4291-be6a-70f996d5b66e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/EntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/EntryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/Configs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/account/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/client/Client.java" afterDir="false" />
@@ -107,7 +106,7 @@
       <workItem from="1739897746431" duration="5241000" />
       <workItem from="1740412913014" duration="2480000" />
       <workItem from="1741897541506" duration="18588000" />
-      <workItem from="1742794966127" duration="7213000" />
+      <workItem from="1742794966127" duration="8919000" />
     </task>
     <servers />
   </component>

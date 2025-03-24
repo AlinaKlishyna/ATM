@@ -1,5 +1,11 @@
 package com.gmail.alinakotova102.database.client;
 
+import com.gmail.alinakotova102.database.DatabaseHandler;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Client {
     public static final int idClient = 1;
     private String firstname;
@@ -51,6 +57,32 @@ public class Client {
 
     public void setContact(int contact) {
         this.contact = contact;
+    }
+
+    public static Client complateClientDB() {
+        ResultSet resultSet;
+        Client client = new Client();
+
+        String select = "SELECT * FROM " + ConstClientDB.CLIENT_TABLE + " WHERE " +
+                ConstClientDB.CLIENT_ID + "=?";
+
+        try {
+            PreparedStatement statement = DatabaseHandler.getDbConnection().prepareStatement(select);
+            statement.setString(1, String.valueOf(Client.idClient));
+
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                client.setFirstname(resultSet.getString(2));
+                client.setLastname(resultSet.getString(3));
+                client.setAddress(resultSet.getString(4));
+                client.setContact(resultSet.getInt(5));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return client;
     }
 
     @Override

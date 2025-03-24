@@ -73,8 +73,8 @@ public class EntryController {
         for (int i = 0; i < numbers.length; i++) {
             int num = i;
             numbers[i].setOnAction(event -> {
-                    authSingField.appendText(String.valueOf(num));
-                    buttonSound.play();
+                authSingField.appendText(String.valueOf(num));
+                buttonSound.play();
                 if (!checkSizeLimit(maxLength, authSingField)) {
                     //метод на проверку пароля и потом только открытие меню
                     entrySystem();
@@ -84,27 +84,23 @@ public class EntryController {
     }
 
     public void entrySystem() {
-        if (!authSingField.getText().isEmpty()) {
-            short pincode = Short.parseShort(authSingField.getText().trim());
-            loginUser(pincode);
-        } else {
-            System.out.println("Error! Password is empty!");
-        }
+        short pincode = Short.parseShort(authSingField.getText().trim());
+        loginUser(pincode);
     }
 
     private void loginUser(short pincode) {
         DatabaseHandler dbHandler = new DatabaseHandler();
         Client client = new Client();
-        ResultSet resultSet = dbHandler.getClient(client, pincode);
+        ResultSet resultSet = dbHandler.findClientDB(client, pincode);
 
         int count = 0;
-            try {
-                while (resultSet.next()) {
-                    count++;
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+        try {
+            while (resultSet.next()) {
+                count++;
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         if (count >= 1) {
             System.out.println("Success! Entered to system");
             hideWindow(authSingField);
