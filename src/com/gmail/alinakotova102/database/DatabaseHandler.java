@@ -21,9 +21,11 @@ public class DatabaseHandler extends Configs {
 
     public ResultSet getClient(Client client) {
         ResultSet resultSet = null;
-
-        String select = "SELECT * FROM " + ConstClientsDB.CLIENT_TABLE + " WHERE " +
-                ConstClientsDB.CLIENTS_ID + "=? AND " + ConstClientsDB.CLIENTS_PINCODE + "=?";
+        //sql-select view
+        //SELECT * FROM account a JOIN clients c ON a.id_clients = c.id_clients WHERE c.id_clients = ? AND a.pincode =?
+        String select = "SELECT * FROM account a " +
+                "JOIN clients c ON a.id_clients = c.id_clients " +
+                "WHERE c.id_clients = ? AND a.pincode =?";
 
         try {
             PreparedStatement statement = getDbConnection().prepareStatement(select);
@@ -35,7 +37,7 @@ public class DatabaseHandler extends Configs {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-       this.client = addDataClient();
+        this.client = addDataClient();
         return resultSet;
     }
 
@@ -51,12 +53,12 @@ public class DatabaseHandler extends Configs {
             statement.setString(1, String.valueOf(Client.idClient));
 
             resultSet = statement.executeQuery();
-        while(resultSet.next()){
-            client.setFirstname(resultSet.getString(2));
-            client.setLastname(resultSet.getString(3));
-            client.setAddress(resultSet.getString(4));
-            client.setContact(resultSet.getInt(5));
-        }
+            while (resultSet.next()) {
+                client.setFirstname(resultSet.getString(2));
+                client.setLastname(resultSet.getString(3));
+                client.setAddress(resultSet.getString(4));
+                client.setContact(resultSet.getInt(5));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
