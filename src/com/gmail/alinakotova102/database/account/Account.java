@@ -7,8 +7,12 @@ import java.math.BigDecimal;
 public class Account {
     private int idAccount;
     private short pincode;
-    private BigDecimal balance;
+    private static BigDecimal balance;
     Client client;
+
+    public Account() {
+
+    }
 
     public Account(Client client, int idAccount, short pincode, BigDecimal balance) {
         this.client = client;
@@ -31,7 +35,7 @@ public class Account {
         this.pincode = pincode;
     }
 
-    public BigDecimal getBalance() {
+    public static BigDecimal getBalance() {
         return balance;
     }
 
