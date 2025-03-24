@@ -1,6 +1,6 @@
 package com.gmail.alinakotova102.controllers;
 
-import com.gmail.alinakotova102.Client;
+import com.gmail.alinakotova102.database.client.Client;
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;

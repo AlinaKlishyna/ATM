@@ -1,4 +1,4 @@
-package com.gmail.alinakotova102;
+package com.gmail.alinakotova102.database.client;
 
 public class Client {
     public static final int idClient = 1;

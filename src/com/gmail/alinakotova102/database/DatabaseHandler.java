@@ -1,6 +1,7 @@
 package com.gmail.alinakotova102.database;
 
-import com.gmail.alinakotova102.Client;
+import com.gmail.alinakotova102.database.client.Client;
+import com.gmail.alinakotova102.database.client.ConstClientsDB;
 
 import java.sql.*;
 
@@ -46,7 +47,7 @@ public class DatabaseHandler extends Configs {
         ResultSet resultSet = null;
         Client client = new Client();
         String select = "SELECT * FROM " + ConstClientsDB.CLIENT_TABLE + " WHERE " +
-                ConstClientsDB.CLIENTS_ID + "=?";
+                ConstClientsDB.CLIENT_ID + "=?";
 
         try {
             PreparedStatement statement = getDbConnection().prepareStatement(select);
