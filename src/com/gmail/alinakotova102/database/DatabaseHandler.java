@@ -24,8 +24,8 @@ public class DatabaseHandler extends Configs {
         //sql-select view
         //SELECT * FROM account a JOIN clients c ON a.id_clients = c.id_clients WHERE c.id_clients = ? AND a.pincode =?
         String select = "SELECT * FROM account a " +
-                "JOIN clients c ON a.id_clients = c.id_clients " +
-                "WHERE c.id_clients = ? AND a.pincode =?";
+                "JOIN client c ON a.id_client = c.id_client " +
+                "WHERE c.id_client = ? AND a.pincode =?";
 
         try {
             PreparedStatement statement = getDbConnection().prepareStatement(select);
