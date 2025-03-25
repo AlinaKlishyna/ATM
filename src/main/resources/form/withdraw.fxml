@@ -43,12 +43,12 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="withdrawAmount3" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="Withdraw" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
+                              <Button fx:id="withdraw" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="Withdraw" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="Lucida Grande" size="22.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="amount" alignment="CENTER" prefHeight="83.0" prefWidth="256.0" styleClass="text-field" stylesheets="@../style/field.css">
+                              <TextField fx:id="amountField" alignment="CENTER" prefHeight="83.0" prefWidth="256.0" styleClass="text-field" stylesheets="@../style/field.css">
                                  <font>
                                     <Font size="66.0" />
                                  </font>
@@ -69,7 +69,7 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="821.0">
                <children>
-                  <GridPane alignment="TOP_CENTER" layoutY="53.0" prefHeight="282.0" prefWidth="801.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
+                  <GridPane alignment="TOP_CENTER" layoutX="10.0" layoutY="14.0" prefHeight="282.0" prefWidth="801.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -80,28 +80,31 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button fx:id="withdrawAmount" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="50" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                        <Button fx:id="amount_50" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="50" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="Lucida Grande" size="22.0" />
                            </font>
                         </Button>
-                        <Button fx:id="depositAmount" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="100" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
+                        <Button fx:id="amount_100" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="100" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
                            <font>
                               <Font name="Lucida Grande" size="22.0" />
                            </font>
                         </Button>
-                        <Button fx:id="withdrawAmount1" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="200" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="2">
+                        <Button fx:id="amount_200" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="306.0" text="200" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="2">
                            <font>
                               <Font name="Lucida Grande" size="22.0" />
                            </font>
                         </Button>
-                        <Button fx:id="withdrawAmount2" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="205.0" text="back" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="backButton" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="68.0" prefWidth="205.0" text="back" textAlignment="CENTER" textFill="#d179e4" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Lucida Grande" size="22.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="34.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="imageBack" fitHeight="34.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
                         </Button>
                      </children>
                   </GridPane>

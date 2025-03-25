@@ -2,6 +2,7 @@ package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.database.account.Account;
+import com.gmail.alinakotova102.utils.ImageUtil;
 import com.gmail.alinakotova102.utils.StageUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,19 +41,16 @@ public class MenuController {
     @FXML
     private Button withdrawAmount;
 
-    BigDecimal balance = Account.getBalance();
+    BigDecimal balance = new Account().getBalance();
 
     @FXML
     void initialize() {
         Image iconEyeClose = new Image(getClass().getResourceAsStream("/image/eye_close.png"));
         Image iconEyeOpen = new Image(getClass().getResourceAsStream("/image/eye_open.png"));
-        Image iconExit = new Image(getClass().getResourceAsStream("/image/icon_exit.png"));
+        ImageUtil.displayImage("/image/icon_exit.png", view_exit);
+        ImageUtil.displayImage("/image/eye_open.png", viewEye);
 
         balanceLabel.setText(String.valueOf(balance));
-
-        view_exit.setImage(iconExit);
-
-        viewEye.setImage(iconEyeOpen);
         hideBalance(balanceLabel);
 
         displayPassword.setOnAction(actionEvent -> {

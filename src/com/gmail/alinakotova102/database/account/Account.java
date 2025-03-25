@@ -12,7 +12,7 @@ public class Account {
     private int idAccount;
     private short pincode;
     private static BigDecimal balance;
-    Client client;
+    public static Client client;
 
     public Account() {
 
@@ -41,7 +41,26 @@ public class Account {
         this.pincode = pincode;
     }
 
-    public static BigDecimal getBalance() {
+    public BigDecimal getBalance() {
+        int id_client = new DatabaseHandler().account.idAccount;
+        ResultSet resultSet;
+
+        String select = "SELECT " + ConstAccountDB.ACCOUNT_BALANCE + " FROM " +ConstAccountDB.ACCOUNT_TABLE +
+        " WHERE " + ConstAccountDB.ACCOUNT_ID_CLIENT + "= ?";
+        try {
+            PreparedStatement statement = DatabaseHandler.getDbConnection().prepareStatement(select);
+            statement.setString(1, String.valueOf(id_client));
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                balance = resultSet.getBigDecimal(4);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(balance);
         return balance;
     }
 

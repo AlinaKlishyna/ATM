@@ -6,15 +6,9 @@ import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
 import com.gmail.alinakotova102.utils.StageUtil;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -85,8 +79,10 @@ public class EntryController {
     }
 
     public void entrySystem() {
-        short pincode = Short.parseShort(authSingField.getText().trim());
-        loginUser(pincode);
+        if (!authSingField.getText().isEmpty()) {
+            short pincode = Short.parseShort(authSingField.getText().trim());
+            loginUser(pincode);
+        }
     }
 
     private void loginUser(short pincode) {
