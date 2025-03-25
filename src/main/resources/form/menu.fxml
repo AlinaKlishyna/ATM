@@ -16,7 +16,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="820.0" styleClass="backgroundColor" stylesheets="@../style/background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gmail.alinakotova102.controllers.MenuController">
    <children>
-      <SplitPane dividerPositions="0.47168405365126675" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="673.0" prefWidth="823.0" styleClass="backgroundColor" stylesheets="@../style/background.css">
+      <SplitPane dividerPositions="0.5089418777943369" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="673.0" prefWidth="823.0" styleClass="backgroundColor" stylesheets="@../style/background.css">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
