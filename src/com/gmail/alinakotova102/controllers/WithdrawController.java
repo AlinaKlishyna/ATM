@@ -3,6 +3,8 @@ package com.gmail.alinakotova102.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.gmail.alinakotova102.database.DatabaseHandler;
+import com.gmail.alinakotova102.database.account.Account;
 import com.gmail.alinakotova102.utils.ImageUtil;
 import com.gmail.alinakotova102.utils.StageUtil;
 import javafx.fxml.FXML;
@@ -61,10 +63,13 @@ public class WithdrawController {
 
         ImageUtil.displayImage("/image/icon_back.png", imageBack);
         ImageUtil.displayImage("/image/icon_exit.png", view_exit);
+        withdrawAmount();
     }
 
     public void withdrawAmount(){
-        
+        Account account = new DatabaseHandler().account;
+        System.out.println("Current balance: " + account.getBalance());
+
     }
 
     public void setAmount(Button button, int amount) {

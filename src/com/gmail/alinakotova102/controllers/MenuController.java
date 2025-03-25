@@ -41,7 +41,7 @@ public class MenuController {
     @FXML
     private Button withdrawAmount;
 
-    BigDecimal balance = Account.getBalance();
+    BigDecimal balance = new Account().getBalance();
 
     @FXML
     void initialize() {
