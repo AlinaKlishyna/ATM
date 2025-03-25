@@ -8,7 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/EntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/EntryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/form/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/form/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/WithdrawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/controllers/WithdrawController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/account/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gmail/alinakotova102/database/account/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/form/withdraw.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/form/withdraw.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +108,7 @@
       <workItem from="1740412913014" duration="2480000" />
       <workItem from="1741897541506" duration="18588000" />
       <workItem from="1742794966127" duration="9431000" />
-      <workItem from="1742822588269" duration="5504000" />
+      <workItem from="1742822588269" duration="9079000" />
     </task>
     <servers />
   </component>

@@ -12,7 +12,7 @@ public class Account {
     private int idAccount;
     private short pincode;
     private static BigDecimal balance;
-    Client client;
+    public static Client client;
 
     public Account() {
 
