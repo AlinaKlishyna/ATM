@@ -4,6 +4,7 @@ import com.gmail.alinakotova102.database.client.Client;
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
+import com.gmail.alinakotova102.utils.StageUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -103,8 +104,8 @@ public class EntryController {
         }
         if (count >= 1) {
             System.out.println("Success! Entered to system");
-            hideWindow(authSingField);
-            openWindow("/form/menu.fxml");
+            StageUtil.hideWindow(authSingField);
+            StageUtil.openWindow("/form/menu.fxml");
         } else {
             System.out.println("ERROR NON CORRECT PASSWORD!");
             authSingField.setText("");
@@ -114,23 +115,5 @@ public class EntryController {
 
     boolean checkSizeLimit(int size, TextField textField) {
         return textField.getCharacters().length() <= size;
-    }
-
-    public void openWindow(String path) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    public void hideWindow(TextField textField) {
-        textField.getScene().getWindow().hide();
     }
 }

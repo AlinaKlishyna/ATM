@@ -2,6 +2,7 @@ package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.database.account.Account;
+import com.gmail.alinakotova102.utils.StageUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -64,6 +65,14 @@ public class MenuController {
             }
         });
         userLabel.setText("Welcome, " + viewFirstLastName() + "!");
+
+        openWithdraw();
+    }
+    public void openWithdraw() {
+        withdrawAmount.setOnAction(event -> {
+            StageUtil.hideWindow(withdrawAmount);
+            StageUtil.openWindow("/form/withdraw.fxml");
+        });
     }
 
     private String viewFirstLastName() {
