@@ -1,5 +1,7 @@
 package com.gmail.alinakotova102.controllers;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class WithdrawController {
@@ -53,26 +54,37 @@ public class WithdrawController {
     @FXML
     private Button withdraw;
 
+    Account account = new DatabaseHandler().account;
+
     @FXML
     void initialize() {
-        setAmount(amount_50, 50);
-        setAmount(amount_100, 100);
-        setAmount(amount_200, 200);
+        setField(amount_50, 50);
+        setField(amount_100, 100);
+        setField(amount_200, 200);
 
         moveBack(backButton, "/form/menu.fxml");
 
         ImageUtil.displayImage("/image/icon_back.png", imageBack);
         ImageUtil.displayImage("/image/icon_exit.png", view_exit);
-        withdrawAmount();
+        setAmountDB();
     }
 
-    public void withdrawAmount(){
-        Account account = new DatabaseHandler().account;
-        System.out.println("Current balance: " + account.getBalance());
-
+    public void setAmountDB() {
+        withdraw.setOnAction(event -> {
+            int amount = Integer.parseInt(amountField.getText());
+            BigDecimal difference = account.getBalance().subtract(BigDecimal.valueOf(amount)).
+                    setScale(2, RoundingMode.HALF_UP);
+            if (!(difference.signum() > 0 || difference.signum() == 0)) {
+                System.out.println("Error! On balance not enough funds!");
+            } else {
+                account.setBalance(difference);
+                System.out.println("Success! Was withdrawn from the account: " + difference +
+                        ".\nRemaining on account: " + account.getBalance());
+            }
+        });
     }
 
-    public void setAmount(Button button, int amount) {
+    public void setField(Button button, int amount) {
         button.setOnAction(event -> {
             amountField.setText(String.valueOf(amount));
         });
