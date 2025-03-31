@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.database.account.Account;
-import com.gmail.alinakotova102.service.Notify;
+import com.gmail.alinakotova102.service.notify.Notify;
 import com.gmail.alinakotova102.utils.ImageUtil;
 import com.gmail.alinakotova102.utils.StageUtil;
 import javafx.fxml.FXML;
@@ -17,7 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import tray.notification.NotificationType;
-import tray.notification.TrayNotification;
 
 public class WithdrawController {
 

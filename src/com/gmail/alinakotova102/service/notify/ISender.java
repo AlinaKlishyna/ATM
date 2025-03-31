@@ -1,4 +1,4 @@
-package com.gmail.alinakotova102.service;
+package com.gmail.alinakotova102.service.notify;
 
 import javafx.scene.image.Image;
 import tray.notification.NotificationType;

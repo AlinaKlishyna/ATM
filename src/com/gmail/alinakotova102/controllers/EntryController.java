@@ -2,11 +2,10 @@ package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.database.client.Client;
 import com.gmail.alinakotova102.database.DatabaseHandler;
-import com.gmail.alinakotova102.service.Notify;
+import com.gmail.alinakotova102.service.notify.Notify;
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
 import com.gmail.alinakotova102.utils.StageUtil;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

@@ -1,13 +1,14 @@
-package com.gmail.alinakotova102.service;
+package com.gmail.alinakotova102.service.notify;
 
 
+import com.gmail.alinakotova102.service.notify.ISender;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
-public class Notify implements ISender{
+public class Notify implements ISender {
     private String title;
     private String message;
 
