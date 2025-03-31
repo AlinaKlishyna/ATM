@@ -7,13 +7,17 @@ import java.util.ResourceBundle;
 
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.database.account.Account;
+import com.gmail.alinakotova102.service.Notify;
 import com.gmail.alinakotova102.utils.ImageUtil;
 import com.gmail.alinakotova102.utils.StageUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 public class WithdrawController {
 
@@ -62,11 +66,14 @@ public class WithdrawController {
         setField(amount_100, 100);
         setField(amount_200, 200);
 
-        moveBack(backButton, "/form/menu.fxml");
-
         ImageUtil.displayImage("/image/icon_back.png", imageBack);
         ImageUtil.displayImage("/image/icon_exit.png", view_exit);
         setAmountDB();
+    }
+
+    @FXML
+    private void clickBack() {
+        moveBack(backButton, "/form/menu.fxml");
     }
 
     public void setAmountDB() {
@@ -76,8 +83,14 @@ public class WithdrawController {
                     setScale(2, RoundingMode.HALF_UP);
             if (!(difference.signum() > 0 || difference.signum() == 0)) {
                 System.out.println("Error! On balance not enough funds!");
+                Notify notify = new Notify("Error!", "On balance not enough funds!");
+                notify.send(NotificationType.ERROR);
             } else {
                 account.setBalance(difference);
+                moveBack(withdraw, "/form/menu.fxml");
+                Notify notify = new Notify("Success! $" + difference + " has been withdrawn.",
+                        "The money was successfully withdrawn from the account.");
+                notify.send(NotificationType.SUCCESS, new Image("/image/icon_withdrawn.png"));
                 System.out.println("Success! Was withdrawn from the account: " + difference +
                         ".\nRemaining on account: " + account.getBalance());
             }
@@ -92,10 +105,8 @@ public class WithdrawController {
 
     public void moveBack(Button button, String path) {
         System.out.println("Withdraw --> Menu");
-        button.setOnAction(event -> {
-            StageUtil.hideWindow(button);
-            StageUtil.openWindow(path);
-        });
+        StageUtil.hideWindow(button);
+        StageUtil.openWindow(path);
     }
 
     @FXML

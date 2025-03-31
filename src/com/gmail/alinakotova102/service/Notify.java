@@ -1,6 +1,6 @@
 package com.gmail.alinakotova102.service;
 
-import javafx.animation.Animation;
+
 import javafx.scene.image.Image;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -51,5 +51,16 @@ public class Notify implements ISender{
                 tray.setImage(new Image("/image/icon_unload.png"));
                 break;
         }
+    }
+
+    @Override
+    public void send(NotificationType nType, Image image) {
+        TrayNotification tray = new TrayNotification();
+        tray.setAnimationType(AnimationType.POPUP);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setImage(image);
+        tray.setNotificationType(nType);
+        tray.showAndDismiss(Duration.millis(2000));
     }
 }
