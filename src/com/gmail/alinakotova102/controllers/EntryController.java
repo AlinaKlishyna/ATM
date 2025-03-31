@@ -6,6 +6,7 @@ import com.gmail.alinakotova102.service.Notify;
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
 import com.gmail.alinakotova102.utils.StageUtil;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -68,6 +69,17 @@ public class EntryController {
         buttonAction(numbers);
     }
 
+    @FXML
+    private void clickErase() {
+        if (!authSingField.getText().isEmpty())
+        authSingField.setText(authSingField.getText().substring(0, authSingField.getText().length()-1));
+    }
+
+    @FXML
+    private void clickCancel() {
+        authSingField.setText("");
+    }
+
     public void buttonAction(Button[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int num = i;
@@ -75,7 +87,6 @@ public class EntryController {
                 authSingField.appendText(String.valueOf(num));
                 buttonSound.play();
                 if (!checkSizeLimit(maxLength, authSingField)) {
-                    //метод на проверку пароля и потом только открытие меню
                     entrySystem();
                 }
             });
