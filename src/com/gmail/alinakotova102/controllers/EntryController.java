@@ -99,6 +99,8 @@ public class EntryController {
                 short pincode = Short.parseShort(authSingField.getText().trim());
                 loginUser(pincode);
             } else {
+                Notify notify = new Notify("Sign out", "The maximum number of attempts has been used.");
+                notify.send(NotificationType.WARNING);
                 System.exit(-1);
             }
         }

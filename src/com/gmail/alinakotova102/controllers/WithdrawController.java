@@ -97,4 +97,9 @@ public class WithdrawController {
             StageUtil.openWindow(path);
         });
     }
+
+    @FXML
+    private void clickExit() {
+        System.exit(-1);
+    }
 }

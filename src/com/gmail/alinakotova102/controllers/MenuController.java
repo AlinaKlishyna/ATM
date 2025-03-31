@@ -86,6 +86,11 @@ public class MenuController {
         label.setText(textHide);
     }
 
+    @FXML
+    private void clickExit() {
+        System.exit(-1);
+    }
+
     void viewBalance(Label label) {
         label.setText(String.valueOf(balance));
     }
