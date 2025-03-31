@@ -9,7 +9,7 @@ import java.sql.*;
 
 public class DatabaseHandler extends Configs {
     public static Client client = new Client();
-    public Account account = new Account();
+    public static Account account = new Account();
 
     public static Connection getDbConnection()
             throws ClassNotFoundException, SQLException {

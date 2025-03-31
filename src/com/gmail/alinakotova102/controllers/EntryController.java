@@ -2,6 +2,7 @@ package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.database.client.Client;
 import com.gmail.alinakotova102.database.DatabaseHandler;
+import com.gmail.alinakotova102.service.Notify;
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
 import com.gmail.alinakotova102.utils.StageUtil;
@@ -9,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import tray.notification.NotificationType;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -53,6 +56,7 @@ public class EntryController {
     private final byte maxLength = 3;
 
     private Sound buttonSound = new Sound(Sound.BUTTON);
+    private int attempt = 1;
 
     @FXML
     void initialize() {
@@ -80,8 +84,12 @@ public class EntryController {
 
     public void entrySystem() {
         if (!authSingField.getText().isEmpty()) {
-            short pincode = Short.parseShort(authSingField.getText().trim());
-            loginUser(pincode);
+            if (attempt != 3) {
+                short pincode = Short.parseShort(authSingField.getText().trim());
+                loginUser(pincode);
+            } else {
+                System.exit(-1);
+            }
         }
     }
 
@@ -100,11 +108,17 @@ public class EntryController {
         }
         if (count >= 1) {
             System.out.println("Success! Entered to system");
+            Notify notify = new Notify("Success!", "You have successfully logged in!");
+            notify.send(NotificationType.SUCCESS);
             StageUtil.hideWindow(authSingField);
             StageUtil.openWindow("/form/menu.fxml");
         } else {
             System.out.println("ERROR NON CORRECT PASSWORD!");
+            Notify notify = new Notify("Error! Attempts used 3/" + attempt, "Login failed! Please try again.");
+            notify.send(NotificationType.ERROR);
             authSingField.setText("");
+            attempt++;
+            System.out.println(attempt);
             entrySystem();
         }
     }

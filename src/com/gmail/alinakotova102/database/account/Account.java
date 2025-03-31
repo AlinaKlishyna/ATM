@@ -42,18 +42,16 @@ public class Account {
     }
 
     public BigDecimal getBalance() {
-        int id_client = new DatabaseHandler().account.idAccount;
         ResultSet resultSet;
-
         String select = "SELECT " + ConstAccountDB.ACCOUNT_BALANCE + " FROM " +ConstAccountDB.ACCOUNT_TABLE +
         " WHERE " + ConstAccountDB.ACCOUNT_ID_CLIENT + "= ?";
         try {
             PreparedStatement statement = DatabaseHandler.getDbConnection().prepareStatement(select);
-            statement.setString(1, String.valueOf(id_client));
+            statement.setString(1, String.valueOf(DatabaseHandler.account.getIdAccount()));
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                balance = resultSet.getBigDecimal(4);
+                balance = resultSet.getBigDecimal(1);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -65,7 +63,19 @@ public class Account {
     }
 
     public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+        if (balance.signum() >= 0) {
+           String select = "UPDATE account SET balance = "+ balance + " WHERE id_account =?";
+            try {
+                PreparedStatement statement = DatabaseHandler.getDbConnection().prepareStatement(select);
+                statement.setString(1, String.valueOf(DatabaseHandler.account.getIdAccount()));
+                statement.executeUpdate();
+                Account.balance = balance;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public Client getClient() {
