@@ -71,7 +71,7 @@ public class EntryController {
     @FXML
     private void clickErase() {
         if (!authSingField.getText().isEmpty())
-        authSingField.setText(authSingField.getText().substring(0, authSingField.getText().length()-1));
+            authSingField.setText(authSingField.getText().substring(0, authSingField.getText().length() - 1));
     }
 
     @FXML

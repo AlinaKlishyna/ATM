@@ -87,7 +87,7 @@ public class WithdrawController {
             } else {
                 account.setBalance(difference);
                 moveBack(withdraw, "/form/menu.fxml");
-                Notify notify = new Notify("Success! $" + difference + " has been withdrawn.",
+                Notify notify = new Notify("Success! $" + amount + " has been withdrawn.",
                         "The money was successfully withdrawn from the account.");
                 notify.send(NotificationType.SUCCESS, new Image("/image/icon_withdrawn.png"));
                 System.out.println("Success! Was withdrawn from the account: " + difference +

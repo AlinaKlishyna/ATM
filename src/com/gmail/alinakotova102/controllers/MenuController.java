@@ -66,6 +66,7 @@ public class MenuController {
 
         openWithdraw();
     }
+
     public void openWithdraw() {
         withdrawAmount.setOnAction(event -> {
             StageUtil.hideWindow(withdrawAmount);

@@ -7,5 +7,6 @@ import java.awt.*;
 
 public interface ISender {
     void send(NotificationType nType);
+
     void send(NotificationType nType, Image image);
 }
