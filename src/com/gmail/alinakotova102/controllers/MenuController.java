@@ -66,6 +66,7 @@ public class MenuController {
 
         openWithdraw();
     }
+
     public void openWithdraw() {
         withdrawAmount.setOnAction(event -> {
             StageUtil.hideWindow(withdrawAmount);
@@ -84,6 +85,11 @@ public class MenuController {
             textHide += "*";
         }
         label.setText(textHide);
+    }
+
+    @FXML
+    private void clickExit() {
+        System.exit(-1);
     }
 
     void viewBalance(Label label) {

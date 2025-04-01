@@ -43,8 +43,8 @@ public class Account {
 
     public BigDecimal getBalance() {
         ResultSet resultSet;
-        String select = "SELECT " + ConstAccountDB.ACCOUNT_BALANCE + " FROM " +ConstAccountDB.ACCOUNT_TABLE +
-        " WHERE " + ConstAccountDB.ACCOUNT_ID_CLIENT + "= ?";
+        String select = "SELECT " + ConstAccountDB.ACCOUNT_BALANCE + " FROM " + ConstAccountDB.ACCOUNT_TABLE +
+                " WHERE " + ConstAccountDB.ACCOUNT_ID_CLIENT + "= ?";
         try {
             PreparedStatement statement = DatabaseHandler.getDbConnection().prepareStatement(select);
             statement.setString(1, String.valueOf(DatabaseHandler.account.getIdAccount()));
@@ -64,7 +64,7 @@ public class Account {
 
     public void setBalance(BigDecimal balance) {
         if (balance.signum() >= 0) {
-           String select = "UPDATE account SET balance = "+ balance + " WHERE id_account =?";
+            String select = "UPDATE account SET balance = " + balance + " WHERE id_account =?";
             try {
                 PreparedStatement statement = DatabaseHandler.getDbConnection().prepareStatement(select);
                 statement.setString(1, String.valueOf(DatabaseHandler.account.getIdAccount()));

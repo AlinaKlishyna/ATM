@@ -97,7 +97,7 @@
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
                   </Button>
-                  <Button fx:id="eraseButton" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Button fx:id="eraseButton" blendMode="OVERLAY" mnemonicParsing="false" onAction="#clickErase" prefHeight="60.0" prefWidth="120.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>
@@ -109,7 +109,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="cancelButton" blendMode="OVERLAY" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="3">
+                  <Button fx:id="cancelButton" blendMode="OVERLAY" mnemonicParsing="false" onAction="#clickCancel" prefHeight="60.0" prefWidth="120.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.rowIndex="3">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>

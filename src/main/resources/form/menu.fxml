@@ -25,7 +25,7 @@
                         <Font name="Bai Jamjuree Medium" size="59.0" />
                      </font>
                   </Label>
-                  <Button fx:id="closeApp" blendMode="OVERLAY" layoutX="640.0" layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="168.0" text="Exit" textAlignment="CENTER" textFill="#0022ff" wrapText="true">
+                  <Button fx:id="closeApp" blendMode="OVERLAY" layoutX="640.0" layoutY="50.0" mnemonicParsing="false" onAction="#clickExit" prefHeight="50.0" prefWidth="168.0" text="Exit" textAlignment="CENTER" textFill="#0022ff" wrapText="true">
                      <font>
                         <Font name="Lucida Grande" size="22.0" />
                      </font>

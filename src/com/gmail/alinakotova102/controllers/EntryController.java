@@ -2,7 +2,7 @@ package com.gmail.alinakotova102.controllers;
 
 import com.gmail.alinakotova102.database.client.Client;
 import com.gmail.alinakotova102.database.DatabaseHandler;
-import com.gmail.alinakotova102.service.Notify;
+import com.gmail.alinakotova102.service.notify.Notify;
 import com.gmail.alinakotova102.service.Sound;
 import com.gmail.alinakotova102.service.Movement;
 import com.gmail.alinakotova102.utils.StageUtil;
@@ -68,6 +68,17 @@ public class EntryController {
         buttonAction(numbers);
     }
 
+    @FXML
+    private void clickErase() {
+        if (!authSingField.getText().isEmpty())
+            authSingField.setText(authSingField.getText().substring(0, authSingField.getText().length() - 1));
+    }
+
+    @FXML
+    private void clickCancel() {
+        authSingField.setText("");
+    }
+
     public void buttonAction(Button[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             int num = i;
@@ -75,7 +86,6 @@ public class EntryController {
                 authSingField.appendText(String.valueOf(num));
                 buttonSound.play();
                 if (!checkSizeLimit(maxLength, authSingField)) {
-                    //метод на проверку пароля и потом только открытие меню
                     entrySystem();
                 }
             });
@@ -88,6 +98,8 @@ public class EntryController {
                 short pincode = Short.parseShort(authSingField.getText().trim());
                 loginUser(pincode);
             } else {
+                Notify notify = new Notify("Sign out", "The maximum number of attempts has been used.");
+                notify.send(NotificationType.WARNING);
                 System.exit(-1);
             }
         }
