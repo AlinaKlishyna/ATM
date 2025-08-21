@@ -1,5 +1,6 @@
 package com.gmail.alinakotova102.controllers;
 
+import com.github.plushaze.traynotification.notification.Notifications;
 import com.gmail.alinakotova102.database.client.Client;
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.service.notify.Notify;
@@ -10,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import tray.notification.NotificationType;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -99,7 +99,7 @@ public class EntryController {
                 loginUser(pincode);
             } else {
                 Notify notify = new Notify("Sign out", "The maximum number of attempts has been used.");
-                notify.send(NotificationType.WARNING);
+                notify.send(Notifications.WARNING);
                 System.exit(-1);
             }
         }
@@ -121,13 +121,13 @@ public class EntryController {
         if (count >= 1) {
             System.out.println("Success! Entered to system");
             Notify notify = new Notify("Success!", "You have successfully logged in!");
-            notify.send(NotificationType.SUCCESS);
+            notify.send(Notifications.SUCCESS);
             StageUtil.hideWindow(authSingField);
             StageUtil.openWindow("/form/menu.fxml");
         } else {
             System.out.println("ERROR NON CORRECT PASSWORD!");
             Notify notify = new Notify("Error! Attempts used 3/" + attempt, "Login failed! Please try again.");
-            notify.send(NotificationType.ERROR);
+            notify.send(Notifications.ERROR);
             authSingField.setText("");
             attempt++;
             System.out.println(attempt);
