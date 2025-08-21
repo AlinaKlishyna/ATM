@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.github.plushaze.traynotification.notification.Notifications;
 import com.gmail.alinakotova102.database.DatabaseHandler;
 import com.gmail.alinakotova102.database.account.Account;
 import com.gmail.alinakotova102.service.notify.Notify;
@@ -16,7 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import tray.notification.NotificationType;
 
 public class WithdrawController {
 
@@ -83,13 +83,13 @@ public class WithdrawController {
             if (!(difference.signum() > 0 || difference.signum() == 0)) {
                 System.out.println("Error! On balance not enough funds!");
                 Notify notify = new Notify("Error!", "On balance not enough funds!");
-                notify.send(NotificationType.ERROR);
+                notify.send(Notifications.ERROR);
             } else {
                 account.setBalance(difference);
                 moveBack(withdraw, "/form/menu.fxml");
                 Notify notify = new Notify("Success! $" + amount + " has been withdrawn.",
                         "The money was successfully withdrawn from the account.");
-                notify.send(NotificationType.SUCCESS, new Image("/image/icon_withdrawn.png"));
+                notify.send(Notifications.SUCCESS, new Image("/image/icon_withdrawn.png"));
                 System.out.println("Success! Was withdrawn from the account: " + difference +
                         ".\nRemaining on account: " + account.getBalance());
             }
